@@ -9,9 +9,9 @@ const db = require("/config/connection");
 const PORT = process.env.PORT || 3001;
 const app = express();
 const server = new ApolloServer({
-  typeDefs,
-  resolvers,
-  context: authMiddleware,
+    typeDefs,
+    resolvers,
+    context: authMiddleware,
 });
 
 app.use(express.urlencoded({ extended: false }));
@@ -29,7 +29,7 @@ const startApolloServer = async (typeDefs, resolvers) => {
   await server.start();
   server.applyMiddleware({ app });
 
-  db.once("open", () => {
+db.once('open', () => {
     app.listen(PORT, () => {
       console.log(`API server running ${PORT}`);
       console.log(
