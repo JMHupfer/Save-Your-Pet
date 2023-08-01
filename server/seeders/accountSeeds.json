@@ -1,0 +1,17 @@
+[
+    {
+        "name": "James Steinhauser",
+        "email": "jstein@gmail.com",
+        "password": "password123"
+    },
+    {
+        "name": "Patrick Meyer",
+        "email": "pmeye@gmail.com",
+        "password": "password234"
+    },
+    {
+        "name": "Jacob Hupfer",
+        "email": "jhupf@gmail.com",
+        "password": "password345"
+    }
+]
