@@ -38,7 +38,7 @@ type Query {
 type Mutation {
     addAccount(username:String!, email:String!, password:String!): Auth
     addAdoption(adoptions: [ID]!): Adoption
-    addMedicine(adoptioins: [ID]!): Medicine
+    addMedicine(adoptions: [ID]!): Medicine
     updateAccount(username:String, email:String, password:String): Account
     updateAdoption(_id:ID!, status:String): Adoption
     login(email: String!, password: String!): Auth
