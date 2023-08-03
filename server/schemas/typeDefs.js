@@ -9,8 +9,8 @@ type Adoption {
 type Medicine {
     _id:ID
     name: String
-    recovered: number
-    died: number
+    recovered: Int
+    died: Int
     }
 
 type Account {
@@ -28,10 +28,10 @@ type Auth {
 
 type Query {
     accounts: [Account]
-    adoptions: (account:ID, name: string)[Adoption]
-    adoption: (_id:ID!): Adoption
-    medicines: (account:ID, name: string)[Medicine]
-    medicine: (_id:ID!): Medicine
+    adoptions(account:ID, name: String): [Adoption]
+    adoption(_id:ID!): Adoption
+    medicines(account:ID, name: String): [Medicine]
+    medicine(_id:ID!): Medicine
     account: Account
 }
 

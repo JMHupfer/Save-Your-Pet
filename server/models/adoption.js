@@ -1,6 +1,5 @@
 const { Schema, model } = require('mongoose');
 
-const { Schema } = mongoose;
 
 const adoptionSchema = new Schema({
     id: {
@@ -34,7 +33,7 @@ const adoptionSchema = new Schema({
     },
 
     age: {
-        type: number,
+        type: Number,
         required: true,
         min:0
     },
@@ -62,6 +61,6 @@ const adoptionSchema = new Schema({
     }
 });
 
-const Adoption = mongoose.model('Adoption', adoptionSchema);
+const Adoption = model('Adoption', adoptionSchema);
 
 module.exports = Adoption;
