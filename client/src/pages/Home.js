@@ -12,7 +12,7 @@ const Home = () => {
   return (
     <div className="card bg-white card-rounded w-50">
       <div className="card-header bg-dark text-center">
-        <h1>Welcome to Save Your Pet</h1>
+        <h1>Welcome to our Website Evelyn Steinhauser!</h1>
       </div>
       <div className="card-body m-5">
         <h2>Here is a list of pets you can choose from:</h2>
