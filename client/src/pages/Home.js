@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 import { useQuery } from "@apollo/client";
 import { QUERY_ACCOUNT } from "../utils/queries";
+// import { QUERY_ADOPTION } from "../utils/queries";
+// import { QUERY_MEDICINE } from "../utils/queries";
 
 const Home = () => {
   const { loading, data } = useQuery(QUERY_ACCOUNT, {
@@ -20,11 +22,11 @@ const Home = () => {
           <div>Loading...</div>
         ) : (
           <ul className="square">
-            {petList.map((matchup) => {
+            {petList.map((pet) => {
               return (
-                <li key={matchup._id}>
-                  <Link to={{ pathname: `/matchup/${matchup._id}` }}>
-                    {matchup.tech1} vs. {matchup.tech2}
+                <li key={pet._id}>
+                  <Link to={{ pathname: `/pet/${pet._id}` }}>
+                    {pet.tech1} vs. {pet.tech2}
                   </Link>
                 </li>
               );
@@ -34,7 +36,7 @@ const Home = () => {
       </div>
       <div className="card-footer text-center m-3">
         <h2>Ready to save your pet?</h2>
-        <Link to="/matchup">
+        <Link to="/pet">
           <button className="btn btn-lg btn-danger">Let's do it!</button>
         </Link>
       </div>
@@ -43,3 +45,4 @@ const Home = () => {
 };
 
 export default Home;
+
