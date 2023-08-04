@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
 import { useQuery } from "@apollo/client";
-import { QUERY_PETS } from "../utils/queries";
+import { QUERY_ACCOUNT } from "../utils/queries";
 
 const Home = () => {
-  const { loading, data } = useQuery(QUERY_PETS, {
+  const { loading, data } = useQuery(QUERY_ACCOUNT, {
     fetchPolicy: "no-cache",
   });
 
