@@ -1,5 +1,5 @@
-const adoption = require('./adoption');
-const medicine = require('./medicine');
-const account = require('./account');
+const Adoption = require('./adoption');
+const Medicine = require('./medicine');
+const Account = require('./account');
 
-module.exports = { adoption, medicine, account };
+module.exports = { Adoption, Medicine, Account };
