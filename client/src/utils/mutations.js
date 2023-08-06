@@ -52,18 +52,19 @@ mutation addSave($medicines: [ID]!) {
 
 export const ADD_ACCOUNT = gql `
 mutation addAccount(
-    $username: String!
-    $email: String!
+    $username: String!,
+    $email: String!,
     $password: String!
 ) {
     addAccount(
-        username: $username
-        email: $email
+        username: $username,
+        email: $email,
         password: $password
     ) {
         token
         account {
             _id
+            username
         }
     }
 }
