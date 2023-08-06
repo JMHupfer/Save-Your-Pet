@@ -1,18 +1,18 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
-import { useMutation } from '@apollo/client';
-import { ADD_ACCOUNT } from '../utils/mutations';
+import { useMutation } from "@apollo/client";
+import { ADD_ACCOUNT } from "../utils/mutations";
 
-import Auth from '../utils/auth';
+import Auth from "../utils/auth";
 
 const Signup = () => {
   const [formState, setFormState] = useState({
-    username: '',
-    email: '',
-    password: '',
+    username: "",
+    email: "",
+    password: "",
   });
-  const [addUser, { error, data }] = useMutation(ADD_ACCOUNT);
+  const [addAccount, { error, data }] = useMutation(ADD_ACCOUNT);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -26,17 +26,20 @@ const Signup = () => {
   const handleFormSubmit = async (event) => {
     event.preventDefault();
     console.log(formState);
-
+  
     try {
-      const { data } = await addUser({
+      const { data } = await addAccount({
         variables: { ...formState },
       });
-
-      Auth.login(data.addUser.token);
+      if (data.addAccount && data.addAccount.token) {
+        Auth.login(data.addAccount.token);
+      } else {
+        console.error('No token received');
+      }
     } catch (e) {
       console.error(e);
     }
-  };
+  };  
 
   return (
     <main className="flex-row justify-center mb-4">
@@ -46,7 +49,7 @@ const Signup = () => {
           <div className="card-body">
             {data ? (
               <p>
-                Success! You may now head{' '}
+                Success! You may now head{" "}
                 <Link to="/">back to the homepage.</Link>
               </p>
             ) : (
@@ -56,7 +59,7 @@ const Signup = () => {
                   placeholder="Your username"
                   name="username"
                   type="text"
-                  value={formState.name}
+                  value={formState.username}
                   onChange={handleChange}
                 />
                 <input
@@ -77,7 +80,7 @@ const Signup = () => {
                 />
                 <button
                   className="btn btn-block btn-primary"
-                  style={{ cursor: 'pointer' }}
+                  style={{ cursor: "pointer" }}
                   type="submit"
                 >
                   Submit
