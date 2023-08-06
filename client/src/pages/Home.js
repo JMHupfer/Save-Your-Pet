@@ -11,6 +11,17 @@ const Home = () => {
 
   const petList = data?.pets || [];
 
+    let petData 
+    fetch ('https://api.fda.gov/animalandveterinary/event.json')
+    .then (data => { 
+      data.json()
+      console.log(data)
+    })
+    .then(response => {
+      console.log(response)
+    })
+    console.log(petData);
+
   return (
     <div className="card bg-white card-rounded w-50">
       <div className="card-header bg-dark text-center">
@@ -45,4 +56,7 @@ const Home = () => {
 };
 
 export default Home;
+
+
+// api URL https://api.fda.gov/animalandveterinary/event.json
 

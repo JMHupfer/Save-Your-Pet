@@ -102,7 +102,7 @@ Mutation: {
         const account = await Account.create(args);
         const token = signToken(account);
 
-        return {token, user};
+        return {token, account};
     },
     addSave: async (parent, {adoptions, medicines}, context) => {
         console.log(context);
