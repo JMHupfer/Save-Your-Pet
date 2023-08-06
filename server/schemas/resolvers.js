@@ -97,19 +97,10 @@ const resolvers = {
   },
   Mutation: {
     addAccount: async (parent, args) => {
-      console.log("Args:", args);
-      try {
-        const account = await Account.create(args);
-        console.log("Created Account:", account);
+      const account = await Account.create(args);
+      const token = signToken(account);
 
-        const token = signToken(account);
-        console.log("Token:", token);
-
-        return { token, account };
-      } catch (error) {
-        console.error("Error creating account:", error);
-        throw new Error("Error creating account.");
-      }
+      return { token, account };
     },
     addSave: async (parent, { adoptions, medicines }, context) => {
       console.log(context);
@@ -124,7 +115,6 @@ const resolvers = {
       }
       throw new AuthenticationError("Gotta log in");
     },
-
     // addMedicine: async (parent, {medicines}, context) => {
     //     console.log(context);
     //     if(context.account) {
@@ -136,7 +126,6 @@ const resolvers = {
     //     }
     //     throw new AuthenticationError('Gotta log in');
     // }
-
     updateAdoption: async (parent, { _id, quantity }) => {
       const decrement = Math.abs(quantity) * -1;
 
@@ -159,13 +148,13 @@ const resolvers = {
       const account = await Account.findOne({ email });
 
       if (!account) {
-        throw new AuthenticationError("Wrong Username");
+        throw new AuthenticationError("Wrong");
       }
 
       const correctPw = await account.isCorrectPassword(password);
 
       if (!correctPw) {
-        throw new AuthenticationError("Wrong Password");
+        throw new AuthenticationError("Wrong");
       }
 
       const token = signToken(account);

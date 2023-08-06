@@ -17,6 +17,7 @@ type Account {
     _id: ID
     username: String
     email: String
+    password: String
     adoptions: [Adoption]
     Medicines: [Medicine]
 }
