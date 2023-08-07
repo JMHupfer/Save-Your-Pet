@@ -1,0 +1,57 @@
+body {
+    font-family: 'Times New Roman', serif;
+    background-color: #f4e9dc; 
+}
+
+.card {
+    border: 1px solid #8b4513; 
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3); 
+    background: #e4d5b7; 
+    text-align: center;
+    margin-top: 5%;
+}
+
+.card-header {
+    background: #8b4513; 
+    border-bottom: 1px solid #8b4513;
+    font-weight: bold;
+}
+
+.card-body {
+    padding: 30px;
+    /* background-image: url('path_to_some_rustic_texture_image.jpg');  */
+}
+
+.form-input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #8b4513; 
+    background: #f4e9dc;
+    transition: all 0.3s;
+}
+
+.form-input:focus {
+    outline: none;
+    box-shadow: 0 0 10px #8b4513; 
+}
+
+.btn {
+    background: #8b4513; 
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: all 0.3s;
+}
+
+.btn:hover {
+    background: #a0522d; 
+}
+
+
+.bg-danger {
+    background: #a52a2a; 
+    border: 1px solid #8b4513; 
+}
