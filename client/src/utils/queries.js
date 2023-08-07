@@ -1,10 +1,9 @@
 import { gql } from '@apollo/client';
 
 export const QUERY_ADOPTION = gql`
-{
+  query Adoptions($save: ID) {
     adoptions(save: $save) {
         _id
-        type
         breed
         name
         gender
@@ -17,11 +16,11 @@ export const QUERY_ADOPTION = gql`
             _id
         }
     }
-}
+  }
 `;
 
 export const QUERY_MEDICINE = gql`
-{
+  query Medicines($save: ID) {
     Medicines(save: $save) {
         name
         recovered
@@ -30,34 +29,31 @@ export const QUERY_MEDICINE = gql`
             _id
         }
     }
-}`;
+  }
+`;
 
 export const QUERY_ACCOUNT = gql`
-{
-    account{
+  query AccountInfo {
+    account {
         username
-        save{
+        adoptions {
             _id
-            saveDate
-            adoptions{
-                _id
-                type
-                breed
-                name
-                gender
-                age
-                color
-                status
-                location
-                organization
-            }
-            medicine{
-                name
-                recovered
-                died
-            }
+            breed
+            name
+            gender
+            age
+            color
+            status
+            location
+            organization
+        }
+        medicines {
+            name
+            recovered
+            died
         }
     }
-}
-`
+  }
+`;
+
 
