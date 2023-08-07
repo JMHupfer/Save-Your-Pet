@@ -5,7 +5,7 @@ import { useMutation } from "@apollo/client";
 import { ADD_ACCOUNT } from "../utils/mutations";
 
 import Auth from "../utils/auth";
-import '../mainPage.css'; 
+import "../mainPage.css";
 
 const Signup = () => {
   const [formState, setFormState] = useState({
@@ -57,7 +57,7 @@ const Signup = () => {
                   placeholder="Your username"
                   name="username"
                   type="text"
-                  value={formState.name}
+                  value={formState.username}
                   onChange={handleChange}
                 />
                 <input
