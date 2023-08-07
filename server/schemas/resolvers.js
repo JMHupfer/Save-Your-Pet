@@ -1,7 +1,3 @@
-const { AuthenticationError } = require("apollo-server-express");
-const { Account, Adoption, Medicine } = require("../models");
-const { signToken } = require("../utils/auth");
-
 const resolvers = {
   Query: {
     Accounts: async () => {
@@ -23,6 +19,7 @@ const resolvers = {
 
       return await Adoption.find(params).populate("account");
     },
+
     medicines: async (parent, { account, username }) => {
       const params = {};
 
@@ -46,32 +43,21 @@ const resolvers = {
     medicine: async (parent, { _id }) => {
       return await Medicine.findById(_id).populate("account");
     },
+
     account: async (parent, args, context) => {
       if (context.account) {
-        const account = await Account.findById(context.account._id).populate({
-          path: "saves.adoptions",
+        const userAccount = await Account.findById(context.account._id).populate({
+          path: "saves.adoptions saves.medicines",
           populate: "account",
         });
 
-        account.saves.sort((a, b) => b.savedDate - a.savedDate);
+        userAccount.saves.sort((a, b) => b.savedDate - a.savedDate);
 
-        return account;
+        return userAccount;
       }
       throw new AuthenticationError("Gotta log in");
     },
-    account: async (parent, args, context) => {
-      if (context.account) {
-        const account = await Account.findById(context.account._id).populate({
-          path: "saves.medicines",
-          populate: "account",
-        });
 
-        account.saves.sort((a, b) => b.saveDate - a.saveDate);
-
-        return account;
-      }
-      throw new AuthenticationError("Gotta log in");
-    },
     save: async (parent, { _id }, context) => {
       if (context.account) {
         const account = await Account.findById(context.account._id).populate({
@@ -83,6 +69,7 @@ const resolvers = {
 
       throw new AuthenticationError("Gotta log in");
     },
+
     saved: async (parent, { _id }, context) => {
       if (context.account) {
         const account = await Account.findById(context.account._id).populate({
@@ -95,6 +82,7 @@ const resolvers = {
       throw new AuthenticationError("Gotta log in");
     },
   },
+
   Mutation: {
     addAccount: async (parent, args) => {
       const account = await Account.create(args);
@@ -102,8 +90,8 @@ const resolvers = {
 
       return { token, account };
     },
+
     addSave: async (parent, { adoptions, medicines }, context) => {
-      console.log(context);
       if (context.account) {
         const save = new Save({ adoptions, medicines });
 
@@ -115,17 +103,7 @@ const resolvers = {
       }
       throw new AuthenticationError("Gotta log in");
     },
-    // addMedicine: async (parent, {medicines}, context) => {
-    //     console.log(context);
-    //     if(context.account) {
-    //         const save = new Save({medicines});
 
-    //         await Account.findByIdAndUpdate(context.account._id, {$push: {saves: save}});
-
-    //         return save;
-    //     }
-    //     throw new AuthenticationError('Gotta log in');
-    // }
     updateAdoption: async (parent, { _id, quantity }) => {
       const decrement = Math.abs(quantity) * -1;
 
@@ -135,6 +113,7 @@ const resolvers = {
         { new: true }
       );
     },
+
     updateMedicine: async (parent, { _id, quantity }) => {
       const decrement = Math.abs(quantity) * -1;
 
@@ -144,17 +123,18 @@ const resolvers = {
         { new: true }
       );
     },
+
     login: async (parent, { email, password }) => {
       const account = await Account.findOne({ email });
 
       if (!account) {
-        throw new AuthenticationError("Wrong");
+        throw new AuthenticationError("Incorrect email");
       }
 
       const correctPw = await account.isCorrectPassword(password);
 
       if (!correctPw) {
-        throw new AuthenticationError("Wrong");
+        throw new AuthenticationError("Incorrect password");
       }
 
       const token = signToken(account);
@@ -163,3 +143,4 @@ const resolvers = {
     },
   },
 };
+
