@@ -1,48 +1,40 @@
 [
     {
-        "_id":"1",
         "name":"Meloxicam",
         "recovered":"27%",
         "died":"28%"
     }, 
     {
-        "_id":"2",
         "name": "Phenobarbital",
         "recovered":"33%",
         "died":"5%"
     },
     {
-        "_id":"3",
         "name": "Acepromazine",
         "recovered": "39%",
         "died": "17%"
     },
     {
-        "_id":"4",
         "name": "Doxycycline",
         "recovered": "16%",
         "died": "6%"
     },
     {
-        "_id":"5",
         "name": "Benadryl",
         "recovered": "25%",
         "died": "6%"
     },
     {
-        "_id":"6",
         "name": "Dramamine",
         "recovered": "100%",
         "died": "0%"
     },
     {
-        "_id":"7",
         "name": "Glucosamine",
         "recovered": "34%",
         "died": "3%"
     },
     {
-        "_id":"8",
         "name": "Hydrocortisone",
         "recovered": "37%",
         "died": "1%"

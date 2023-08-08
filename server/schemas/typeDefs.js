@@ -34,6 +34,7 @@ type Query {
     medicines(account:ID, name: String): [Medicine]
     medicine(_id:ID!): Medicine
     account: Account
+    getAllMedicine:[Medicine]
 }
 
 type Mutation {

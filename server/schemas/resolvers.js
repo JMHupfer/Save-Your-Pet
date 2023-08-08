@@ -48,6 +48,9 @@ const resolvers = {
     medicine: async (parent, { _id }) => {
       return await Medicine.findById(_id).populate("account");
     },
+    getAllMedicine: async (parent) => {
+      return await Medicine.find();
+    },
 
     account: async (parent, args, context) => {
       if (context.account) {
