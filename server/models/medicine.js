@@ -7,12 +7,12 @@ const medicineSchema = new Schema({
     },
 
     recovered: {
-        type: Number,
+        type: String,
         required: true
     },
 
     died:{
-        type: Number,
+        type: String,
         required: true
     },
 })
