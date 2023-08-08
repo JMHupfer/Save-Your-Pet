@@ -15,7 +15,7 @@ import Home from "./pages/Home";
 import Medicine from "./pages/medicine";
 
 const httpLink = createHttpLink({
-  uri: "http://localhost:3001/graphql",
+  uri:  process.env.REACT_APP_SAVE_PET || "http://localhost:3001/graphql",
 });
 
 const authLink = setContext((_, { headers }) => {
