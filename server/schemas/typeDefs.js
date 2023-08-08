@@ -9,8 +9,8 @@ type Adoption {
 type Medicine {
     _id:ID
     name: String
-    recovered: Int
-    died: Int
+    recovered: String
+    died: String
     }
 
 type Account {
