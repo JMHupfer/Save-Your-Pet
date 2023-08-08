@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useMutation } from "@apollo/client";
 import { LOGIN_USER } from "../utils/mutations";
 
@@ -19,6 +19,8 @@ const Login = (props) => {
     });
   };
 
+  const navigate = useNavigate();
+
   const handleFormSubmit = async (event) => {
     event.preventDefault();
     console.log(formState);
@@ -28,6 +30,8 @@ const Login = (props) => {
       });
 
       Auth.login(data.login.token);
+
+      navigate("/home");
     } catch (e) {
       console.error(e);
     }
@@ -66,11 +70,7 @@ const Login = (props) => {
                   value={formState.password}
                   onChange={handleChange}
                 />
-                <button
-                  className="btn btn-block"
-                  style={{ cursor: "pointer" }}
-                  type="submit"
-                >
+                <button className="btn btn-block" type="submit">
                   Submit
                 </button>
               </form>
