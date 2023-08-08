@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import { useMutation } from "@apollo/client";
 import { ADD_ACCOUNT } from "../utils/mutations";
 
 import Auth from "../utils/auth";
-import "../mainPage.css";
+import '../mainPage.css'; 
 
 const Signup = () => {
   const [formState, setFormState] = useState({
@@ -14,15 +14,17 @@ const Signup = () => {
     password: "",
   });
   const [addAccount, { error, data }] = useMutation(ADD_ACCOUNT);
-
+  
   const handleChange = (event) => {
     const { name, value } = event.target;
-
+    
     setFormState({
       ...formState,
       [name]: value,
     });
   };
+  
+  const navigate = useNavigate();
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
@@ -34,6 +36,8 @@ const Signup = () => {
       });
 
       Auth.login(data.addAccount.token);
+      console.log("navigate home")
+      navigate("/home");
     } catch (e) {
       console.error(e);
     }
