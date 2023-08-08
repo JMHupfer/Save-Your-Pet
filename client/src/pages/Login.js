@@ -46,7 +46,7 @@ const Login = (props) => {
           <div className="card-body">
             {data ? (
               <p>
-                Success! You may now save <Link to="/">your pet.</Link>
+                Success! You may now save <Link to="/home">your pet.</Link>
               </p>
             ) : (
               <form onSubmit={handleFormSubmit}>
