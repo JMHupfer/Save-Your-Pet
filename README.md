@@ -53,4 +53,4 @@
 
 ## Deployed Heroku Link
 
-- <a href="https://save-your-pet-662ed02212c9.herokuapp.com/>Save Your Pet Here!</a>
+- <a href="https://save-your-pet-662ed02212c9.herokuapp.com/">Save Your Pet Here!</a>
