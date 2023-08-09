@@ -9,36 +9,16 @@ const resolvers = {
       return await Account.find();
     },
 
-    adoptions: async (parent, { account, username }) => {
-      const params = {};
+    adoptions: async () => {
 
-      if (account) {
-        params.account = account;
-      }
 
-      if (username) {
-        params.username = {
-          $regex: username,
-        };
-      }
-
-      return await Adoption.find(params).populate("account");
+      return await Adoption.find();
     },
 
-    medicines: async (parent, { account, username }) => {
-      const params = {};
+    medicines: async () => {
 
-      if (account) {
-        params.account = account;
-      }
 
-      if (username) {
-        params.username = {
-          $regex: username,
-        };
-      }
-
-      return await Medicine.find(params).populate("account");
+      return await Medicine.find();
     },
 
     adoption: async (parent, { _id }) => {

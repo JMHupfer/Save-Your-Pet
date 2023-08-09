@@ -4,6 +4,9 @@ const typeDefs = gql`
 type Adoption {
     _id: ID
     name: String
+    type: String
+    age: Int
+    description: String
 }
 
 type Medicine {
@@ -29,9 +32,9 @@ type Auth {
 
 type Query {
     accounts: [Account]
-    adoptions(account:ID, name: String): [Adoption]
+    adoptions: [Adoption]
     adoption(_id:ID!): Adoption
-    medicines(account:ID, name: String): [Medicine]
+    medicines: [Medicine]
     medicine(_id:ID!): Medicine
     account: Account
     getAllMedicine:[Medicine]
