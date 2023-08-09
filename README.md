@@ -49,7 +49,7 @@
 
   - Direct any questions about the repo to me at: jmhupfer@gmail.com or steinhauserjames3@gmail.com. 
   
-  - You can locate me at my GitHub page as well at: [J-steinhauser-24 and JMHupfer](https://github.com/J-steinhauser-24 and https://github.com/JMHupfer)
+  - You can locate me at my GitHub page as well at: <a href="https://github.com/J-steinhauser-24">J-steinhauser-24</a> and <a href="https://github.com/JMHupfer">JMHupfer</a>
 
 ## Deployed Heroku Link
 
