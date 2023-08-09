@@ -1,7 +1,7 @@
-import { gql } from '@apollo/client';
+import { gql } from "@apollo/client";
 
 export const QUERY_ADOPTIONS = gql`
-  query getAdoptions {
+  query Adoptions {
     adoptions {
       _id
       name
@@ -15,9 +15,9 @@ export const QUERY_ADOPTIONS = gql`
 export const QUERY_MEDICINE = gql`
   query Medicines {
     medicines {
-        name
-        recovered
-        died
+      name
+      recovered
+      died
     }
   }
 `;
@@ -25,25 +25,23 @@ export const QUERY_MEDICINE = gql`
 export const QUERY_ACCOUNT = gql`
   query AccountInfo {
     account {
-        username
-        adoptions {
-            _id
-            breed
-            name
-            gender
-            age
-            color
-            status
-            location
-            organization
-        }
-        medicines {
-            name
-            recovered
-            died
-        }
+      username
+      adoptions {
+        _id
+        breed
+        name
+        gender
+        age
+        color
+        status
+        location
+        organization
+      }
+      medicines {
+        name
+        recovered
+        died
+      }
     }
   }
 `;
-
-

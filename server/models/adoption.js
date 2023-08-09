@@ -13,24 +13,10 @@ const adoptionSchema = new Schema({
         trim: true
     },
 
-    // breed: {
-    //     type: String,
-    //     required:true,
-    //     trim:true
-    // },
-
     name: {
         type: String,
         required: true
     },
-
-    // size: {
-    //     type: String
-    // },
-
-    // gender: {
-    //     type: String
-    // },
 
     age: {
         type: Number,
@@ -38,27 +24,6 @@ const adoptionSchema = new Schema({
         min:0
     },
 
-    // color: {
-    //     type: String
-    // },
-    
-    // status: {
-    //     type: String,
-    //     required: true
-    // },
-
-    // house_trained: {
-    //     type: Boolean
-    // },
-
-    // location: {
-    //     type: String,
-    //     required: true
-    // },
-
-    // organization: {
-    //     type: String
-    // }
     description: {
         type: String
     }
