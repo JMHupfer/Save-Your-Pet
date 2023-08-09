@@ -1,17 +1,23 @@
 [
-    {
-      "id": 1,
-      "name": "Buddy",
-      "type": "Dog",
-      "age": 3,
-      "description": "Friendly Golden Retriever"
-    },
-    {
-      "id": 2,
-      "name": "Whiskers",
-      "type": "Cat",
-      "age": 2,
-      "description": "Independent tabby cat"
-    }
-  ]
-  
+  {
+    "id": 1,
+    "name": "Buddy",
+    "type": "Dog",
+    "age": 3,
+    "description": "Friendly Golden Retriever"
+  },
+  {
+    "id": 2,
+    "name": "Whiskers",
+    "type": "Cat",
+    "age": 2,
+    "description": "Independent tabby cat"
+  },
+  {
+    "id": 3,
+    "name": "Polly",
+    "type": "Bird",
+    "age": 65,
+    "description": "Cranky old bird"
+  }
+]
